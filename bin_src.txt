@@ -1,0 +1,106 @@
+:: Set your project directories
+set SRC_DIR=src
+set BIN_DIR=bin
+
+:: Make sure the bin directory exists
+if not exist %BIN_DIR% mkdir %BIN_DIR%
+
+:: Compile Java files
+javac -d %BIN_DIR% %SRC_DIR%\*.java
+
+:: Optional: Print the contents of the bin directory to see the compiled files
+echo Compiled files:
+dir %BIN_DIR%
+----for windows
+#!/bin/bash
+
+# Set your project directories
+SRC_DIR="src"
+BIN_DIR="bin"
+
+# Make sure the bin directory exists
+mkdir -p $BIN_DIR
+
+# Compile Java files
+javac -d $BIN_DIR $SRC_DIR/*/.java
+
+# Optional: Print the contents of the bin directory to see the compiled files
+echo "Compiled files:"
+ls -l $BIN_DIR
+----for ubunttu
+
+------Source to bin directory in jenkins---------
+
+
+
+
+
+
+from chatgpt.
+Steps to Run the Batch Script
+1. Create the Script
+Open a text editor (e.g., Notepad).
+Paste the script into the editor:
+batch
+Copy code
+@echo off
+
+:: Set your project directories
+set SRC_DIR=src
+set BIN_DIR=bin
+
+:: Make sure the bin directory exists
+if not exist %BIN_DIR% mkdir %BIN_DIR%
+
+:: Compile Java files
+javac -d %BIN_DIR% %SRC_DIR%\*.java
+
+:: Optional: Print the contents of the bin directory to see the compiled files
+echo Compiled files:
+dir %BIN_DIR%
+Save the file with a .bat extension, e.g., compile.bat.
+2. Place the Script
+Place the compile.bat file in the root directory of your Java project.
+Ensure your project has the following structure:
+css
+Copy code
+ProjectRoot/
+├── src/
+│   ├── YourJavaFile1.java
+│   ├── YourJavaFile2.java
+├── compile.bat
+3. Open Command Prompt
+Press Win + R, type cmd, and hit Enter.
+Navigate to the project directory where the batch file is located using the cd command:
+cmd
+Copy code
+cd path\to\your\project
+For example:
+cmd
+Copy code
+cd C:\Users\YourName\JavaProjects\MyProject
+4. Run the Script
+Execute the batch script by typing its name:
+cmd
+Copy code
+compile.bat
+The script will:
+Check if the bin directory exists; if not, it will create it.
+Compile all .java files in the src directory and place the .class files in the bin directory.
+Display the compiled files in the bin directory (if this part of the script is included).
+Prerequisites
+Java Development Kit (JDK) Installed:
+
+Ensure javac (Java compiler) is available on your system. You can check this by running:
+cmd
+Copy code
+javac -version
+If not installed, download and install the JDK from Oracle's website or OpenJDK.
+Environment Variable Configuration:
+
+Make sure the javac command is added to your system's PATH environment variable. If it isn't, refer to this guide to set it up.
+Verification
+After running the script:
+
+Check the bin directory in your project folder. It should contain .class files corresponding to the .java files in the src directory.
+If there are errors in the Java code, they will appear in the Command Prompt during compilation.
